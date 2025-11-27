@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ELECTION-2025</title>
+
+<style>
+    body {
+        background: #f2f2f2;
+        font-family: "Georgia", serif;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .outer-box {
+        background: #dcdcdc;
+        padding: 25px;
+        border-radius: 20px;
+        width: 420px;
+    }
+
+    .inner-box {
+        background: white;
+        border-radius: 15px;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    h2 {
+        margin: 5px 0 15px 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    td, th {
+        border: 1px solid #000;
+        padding: 12px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .vote-btn {
+        width: 55px;
+        height: 26px;
+        background: #777;
+        border-radius: 40px;
+        margin: auto;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .vote-btn.active {
+        background: #002b5c;
+    }
+
+    /* RED LED LIGHT */
+    .led {
+        width: 18px;
+        height: 18px;
+        background: #300;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 6px;
+        box-shadow: 0 0 2px #000;
+    }
+
+    .led.on {
+        background: red;
+        box-shadow: 0 0 12px red;
+    }
+
+    footer {
+        margin-top: 15px;
+        font-size: 15px;
+        color: #777;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="outer-box">
+    <div class="inner-box">
+
+        <h1>ELECTION-2025</h1>
+        <h2>WARD-5</h2>
+
+        <table>
+            <tr>
+                <th>No</th>
+                <th>പേര്</th>
+                <th>ചിഹ്നം</th>
+                <th>Vote</th>
+                <th></th>
+            </tr>
+
+    <tr>
+        <td>1</td>
+        <td></td>
+        <td>
+        </td>
+        <td>
+            <div class="vote-btn" onclick="castVote(this, 1)"></div>
+        </td>
+        <td>
+            <div id="led1" class="led"></div>
+        </td>
+    </tr>
+
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 3)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>
+                 <tr>
+                <td>3</td>
+                <td>സൂരജ് എം</td>
+                <td> <img src="file:///home/ramees/Downloads/hand_congress.svg" class="symbol-img" width="32" alt="Hand symbol"></td>
+                <td><div class="vote-btn" onclick="castVote(this, 2)"></div></td>
+                <td><div id="led2" class="led"></div></td>
+            </tr>
+               <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 4)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>
+               <tr>
+                <td>5</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 5)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>
+               <tr>
+                <td>6</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 6)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>
+               <tr>
+                <td>7</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 7)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>   <tr>
+                <td>8</td>
+                <td></td>
+                <td></td>
+                <td><div class="vote-btn" onclick="castVote(this, 8)"></div></td>
+                <td><div id="led3" class="led"></div></td>
+            </tr>
+
+        </table>
+
+        <footer>Developed by:Ramees </footer>
+    </div>
+</div>
+
+<!-- REAL EVM BEEP SOUND -->
+
+    <!-- <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg"> -->
+     <audio id="beepSound">
+  <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/01/Long-beep-sound.mp3" type="audio/mp3">
+
+</audio>
+
+<script>
+let voted = false;
+
+function castVote(btn, num) {
+    if (voted) return; // only 1 vote allowed
+
+    // Remove active styles
+    document.querySelectorAll(".vote-btn").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".led").forEach(x => x.classList.remove("on"));
+
+    // Activate button
+    btn.classList.add("active");
+
+    // Turn ON LED
+    let led = document.getElementById("led" + num);
+    led.classList.add("on");
+
+    // Play beep (1 second)
+    let beep = document.getElementById("beepSound");
+    beep.currentTime = 0;
+    beep.play();
+
+    // Turn OFF LED and stop beep after 1 second
+    setTimeout(() => {
+        led.classList.remove("on");
+        beep.pause();
+        beep.currentTime = 0;
+    }, 1000);
+
+    voted = true;  // lock system
+}
+</script>
+
+
+</body>
+</html>
