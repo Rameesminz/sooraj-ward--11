@@ -16,15 +16,17 @@
             justify-content: center;
             align-items: flex-start;
             background: #ececec;
+            overflow-x: hidden; /* STOP MOBILE SLIDING */
         }
 
         .outer-box {
-            width: 95%;
+            width: 100%;
             max-width: 420px;
             background: #dcdcdc;
             padding: 15px;
             margin-top: 20px;
             border-radius: 20px;
+            box-sizing: border-box;
         }
 
         .inner-box {
@@ -37,46 +39,43 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            table-layout: fixed;   /* IMPORTANT: Fix column width */
+            table-layout: fixed;  /* FIXED COLUMNS — NO SLIDE */
             border: 2px solid black;
         }
 
         th, td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 6px;
             font-size: 14px;
             text-align: center;
             vertical-align: middle;
             height: 45px;
+            word-wrap: break-word;
         }
 
-        /* Set column widths equally */
-        th:nth-child(1),
-        td:nth-child(1) { width: 15%; }
+        /* Equal column widths - best for mobile */
+        th:nth-child(1), td:nth-child(1) { width: 12%; }
+        th:nth-child(2), td:nth-child(2) { width: 33%; }
+        th:nth-child(3), td:nth-child(3) { width: 20%; }
+        th:nth-child(4), td:nth-child(4) { width: 20%; }
+        th:nth-child(5), td:nth-child(5) { width: 15%; }
 
-        th:nth-child(2),
-        td:nth-child(2) { width: 30%; }
-
-        th:nth-child(3),
-        td:nth-child(3) { width: 20%; }
-
-        th:nth-child(4),
-        td:nth-child(4) { width: 20%; }
-
-        th:nth-child(5),
-        td:nth-child(5) { width: 15%; }
+        img {
+            max-width: 28px;   /* Prevents table overflow */
+            height: auto;
+        }
 
         .vote-btn {
-            width: 45px;
-            height: 22px;
+            width: 40px;
+            height: 20px;
             background: #201d44;
             border-radius: 40px;
             margin: auto;
         }
 
         .led {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             background: #ecebf0;
             border-radius: 50%;
             box-shadow: inset 0 0 4px #2a2046;
@@ -101,7 +100,6 @@
     </style>
 </head>
 
-
 <body>
 
     <div class="outer-box">
@@ -122,7 +120,7 @@
                 <tr>
                     <td>1</td>
                     <td>അശ്വനി. കെ</td>
-                    <td><img src="images/new.jpg" width="32"></td>
+                    <td><img src="images/new.jpg"></td>
                     <td><div class="vote-btn" onclick="castVote(this,1)"></div></td>
                     <td><div id="led1" class="led"></div></td>
                 </tr>
