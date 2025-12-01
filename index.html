@@ -3,12 +3,11 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta charset="UTF-8">
     <title>ELECTION-2025</title>
 
     <style>
-        /* Make the page fullscreen + centered */
+        /* Fullscreen + centered */
         html,
         body {
             margin: 0;
@@ -18,11 +17,11 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            /* for natural scroll */
             background: #f5f5f5;
+            font-family: Arial, sans-serif;
         }
 
-        /* Outer box responsive */
+        /* Outer box */
         .outer-box {
             width: 95%;
             max-width: 420px;
@@ -41,7 +40,7 @@
             text-align: center;
         }
 
-        /* Table wrapper (prevents shrinking) */
+        /* Table wrapper for horizontal scroll */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -53,9 +52,8 @@
             border: 1px solid #000;
         }
 
-        /* All rows equal height */
-        td,
-        th {
+        th,
+        td {
             border: 1px solid #000;
             padding: 8px;
             font-size: 14px;
@@ -63,7 +61,7 @@
             vertical-align: middle;
         }
 
-        /* Fix vote button centering */
+        /* Vote button */
         .vote-btn {
             width: 45px;
             height: 22px;
@@ -73,27 +71,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
         }
 
-        /* LED wrapper cell */
+        .vote-btn.active {
+            background: #4a43a0;
+        }
+
+        /* LED wrapper */
         td.led-cell {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* LED base */
+        /* LED */
         .led {
             width: 18px;
             height: 18px;
             background: #ecebf0;
-            /* dark red when off */
             border-radius: 50%;
             box-shadow: inset 0 0 4px #2a2046;
             transition: 0.15s ease-in-out;
         }
 
-        /* LED ON state */
         .led.on {
             background: red;
             box-shadow:
@@ -104,145 +105,126 @@
         }
 
         footer {
-            margin-top: 15px;
-            font-size: 15px;
-            color: #777;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
         }
     </style>
-
 </head>
 
 <body>
-
     <div class="outer-box">
         <div class="inner-box">
 
             <h1>ELECTION-2025</h1>
             <h2>WARD-30</h2>
 
-            <table>
-                <tr>
-                    <th>No</th>
-                    <th>പേര്</th>
-                    <th>ചിഹ്നം</th>
-                    <th>Vote</th>
-                    <th></th>
-                </tr>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>പേര്</th>
+                        <th>ചിഹ്നം</th>
+                        <th>Vote</th>
+                        <th></th>
+                    </tr>
 
-              <table>
-    <tr>
-        <th>No</th>
-        <th>പേര്</th>
-        <th>ചിഹ്നം</th>
-        <th>Vote</th>
-        <th></th>
-    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>അശ്വനി. കെ</td>
+                        <td><img src="images/new.jpg" alt="Symbol" width="32"></td>
+                        <td><div class="vote-btn" onclick="castVote(this,1)"></div></td>
+                        <td class="led-cell"><div id="led1" class="led"></div></td>
+                    </tr>
 
-    <!-- UPDATED: Row 1 now has Ashwini K -->
-    <tr>
-        <td>1</td>
-        <td>അശ്വനി. കെ</td>
-        <td><img src="images/new.jpg" alt="Symbol"></td>
-        <td><div class="vote-btn" onclick="castVote(this,1)"></div></td>
-        <td><div id="led1" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,2)"></div></td>
+                        <td class="led-cell"><div id="led2" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,2)"></div></td>
-        <td><div id="led2" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,3)"></div></td>
+                        <td class="led-cell"><div id="led3" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,3)"></div></td>
-        <td><div id="led3" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,4)"></div></td>
+                        <td class="led-cell"><div id="led4" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,4)"></div></td>
-        <td><div id="led4" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,5)"></div></td>
+                        <td class="led-cell"><div id="led5" class="led"></div></td>
+                    </tr>
 
-    <!-- Row 5 becomes empty now -->
-    <tr>
-        <td>5</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,5)"></div></td>
-        <td><div id="led5" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,6)"></div></td>
+                        <td class="led-cell"><div id="led6" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>6</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,6)"></div></td>
-        <td><div id="led6" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,7)"></div></td>
+                        <td class="led-cell"><div id="led7" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>7</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,7)"></div></td>
-        <td><div id="led7" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,8)"></div></td>
+                        <td class="led-cell"><div id="led8" class="led"></div></td>
+                    </tr>
 
-    <tr>
-        <td>8</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,8)"></div></td>
-        <td><div id="led8" class="led"></div></td>
-    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="vote-btn" onclick="castVote(this,9)"></div></td>
+                        <td class="led-cell"><div id="led9" class="led"></div></td>
+                    </tr>
+                </table>
+            </div>
 
-    <tr>
-        <td>9</td>
-        <td></td>
-        <td></td>
-        <td><div class="vote-btn" onclick="castVote(this,9)"></div></td>
-        <td><div id="led9" class="led"></div></td>
-    </tr>
-</table>
-
-            </table>
-
-            <footer>Developed by:Ramees </footer>
-           <footer>rameeskmna786@gmail.com </footer>
+            <footer>Developed by: Ramees</footer>
+            <footer>rameeskmna786@gmail.com</footer>
         </div>
     </div>
 
-    <!-- REAL EVM BEEP SOUND -->
-
-    <!-- <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg"> -->
     <audio id="beepSound">
         <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/01/Long-beep-sound.mp3" type="audio/mp3">
-
     </audio>
 
     <script>
-        let votingLocked = false;  // lock only during LED/beep period
+        let votingLocked = false;
 
         function castVote(btn, num) {
-            if (votingLocked) return; // block during LED ON time only
+            if (votingLocked) return;
             votingLocked = true;
 
-            // Remove existing active states
+            // Reset previous states
             document.querySelectorAll(".vote-btn").forEach(x => x.classList.remove("active"));
             document.querySelectorAll(".led").forEach(x => x.classList.remove("on"));
 
-            // Add active class
+            // Activate current vote
             btn.classList.add("active");
-
-            // LED ON
             let led = document.getElementById("led" + num);
             led.classList.add("on");
 
@@ -251,20 +233,16 @@
             beep.currentTime = 0;
             beep.play();
 
-            // Turn OFF LED + stop beep + reset for next vote
+            // Reset after 1.2s
             setTimeout(() => {
                 led.classList.remove("on");
                 btn.classList.remove("active");
-
                 beep.pause();
                 beep.currentTime = 0;
-
-                votingLocked = false; // unlock for next vote
+                votingLocked = false;
             }, 1200);
         }
     </script>
-
-
 </body>
 
 </html>
