@@ -31,41 +31,52 @@
         .inner-box {
             background: #fff;
             border-radius: 15px;
-            padding: 20px 12px;
+            padding: 15px 10px;
             text-align: center;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            border: 1px solid #000;
+            table-layout: fixed;
+            border: 2px solid #000;
         }
 
-        td, th {
+        th, td {
             border: 1px solid #000;
-            padding: 8px;
+            padding: 6px;
             font-size: 14px;
             text-align: center;
             vertical-align: middle;
         }
 
+        /* EVM style symbol image */
+        td img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain; /* IMPORTANT: Keeps shape perfect */
+        }
+
+        /* EVM Vote button style */
         .vote-btn {
-            width: 45px;
-            height: 22px;
+            width: 40px;
+            height: 20px;
             background: #201d44;
-            border-radius: 40px;
+            border-radius: 20px;
             margin: auto;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* EVM LED */
         .led {
-            width: 18px;
-            height: 18px;
-            background: #ecebf0;
+            width: 15px;
+            height: 15px;
+            background: #e8e8e8;
             border-radius: 50%;
-            box-shadow: inset 0 0 4px #2a2046;
+            margin: auto;
+            box-shadow: inset 0 0 3px #333;
             transition: 0.15s ease-in-out;
         }
 
@@ -74,14 +85,13 @@
             box-shadow:
                 0 0 4px red,
                 0 0 10px red,
-                0 0 14px red,
-                inset 0 0 4px #ffcccc;
+                inset 0 0 3px #ffcccc;
         }
 
         footer {
-            margin-top: 15px;
-            font-size: 15px;
-            color: #777;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
         }
     </style>
 
@@ -178,7 +188,7 @@
 
             </table>
 
-            <footer>Developed by:rameeskmna786@gmail.com</footer>
+            <footer>Developed by: rameeskmna786@gmail.com</footer>
         </div>
     </div>
 
